@@ -101,117 +101,27 @@ body {
     transform: translateY(0);
 }
 
-/* --- Resume View (Vertical A4) --- */
-.a4-vertical {
-    width: var(--a4-w);
-    min-height: var(--a4-h);
-    height: auto;
-    background: var(--paper-color);
+/* --- Resume View (PDF) --- */
+.pdf-container {
+    width: 100%;
+    max-width: 1000px;
+    /* Limit ultra-wide stretch */
+    height: calc(100vh - 80px);
+    /* Leave room for header margin */
+    margin: 20px auto;
     box-shadow: var(--shadow);
-    padding: 40px;
-    position: relative;
-    margin: 40px auto;
+    border-radius: 8px;
+    overflow: hidden;
+    background: var(--paper-color);
 }
 
-/* Responsive scaling for small screens */
-@media (max-width: 900px) {
-    .a4-vertical {
-        --scale: calc(92vw / 793.7);
-        width: 92vw;
-        min-height: calc(1122.5px * var(--scale));
-        /* 297mm height prop */
-        height: auto;
-        padding: calc(40px * var(--scale));
-        margin: 4vw auto;
-        box-shadow: var(--shadow);
-        border-radius: 4px;
-        transform: none;
-    }
-
-    /* Dynamically shrink fonts and margins inside .a4-vertical exactly matching desktop A4 proportion */
-    .a4-vertical,
-    .a4-vertical p,
-    .a4-vertical strong,
-    .a4-vertical em {
-        font-size: calc(16px * var(--scale));
-    }
-
-    .a4-vertical p {
-        margin-bottom: calc(10px * var(--scale));
-    }
-
-    .a4-vertical h1 {
-        font-size: calc(40px * var(--scale));
-        border-bottom-width: calc(2px * var(--scale));
-        padding-bottom: calc(10px * var(--scale));
-        margin-bottom: calc(20px * var(--scale));
-    }
-
-    .a4-vertical h2 {
-        font-size: calc(24px * var(--scale));
-        margin-top: calc(20px * var(--scale));
-        margin-bottom: calc(10px * var(--scale));
-    }
-
-    .a4-vertical h3 {
-        font-size: calc(19.2px * var(--scale));
-        margin-top: calc(15px * var(--scale));
-        margin-bottom: calc(5px * var(--scale));
-    }
-
-    .a4-vertical h4 {
-        font-size: calc(16px * var(--scale));
-    }
-
-    .a4-vertical ul {
-        padding-left: calc(20px * var(--scale));
-        margin-bottom: calc(15px * var(--scale));
-    }
-
-    .a4-vertical li {
-        margin-bottom: calc(5px * var(--scale));
-    }
+.pdf-container object {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: none;
 }
 
-.cv-header {
-    border-bottom: 2px solid #000;
-    padding-bottom: 20px;
-    margin-bottom: 30px;
-}
-
-.cv-header h1 {
-    font-size: 2.5rem;
-    margin-bottom: 5px;
-}
-
-.cv-header h2 {
-    font-size: 1.2rem;
-    font-weight: 400;
-    color: #555;
-    margin-bottom: 15px;
-}
-
-.cv-item {
-    margin-bottom: 20px;
-}
-
-.cv-row {
-    display: flex;
-    justify-content: space-between;
-    font-weight: 600;
-    margin-bottom: 5px;
-}
-
-.company {
-    font-style: italic;
-    margin-bottom: 5px;
-    color: #555;
-}
-
-ul {
-    padding-left: 20px;
-    line-height: 1.5;
-}
 
 /* --- Portfolio View (Flipbook) --- */
 .flipbook-scene {
@@ -274,56 +184,7 @@ ul {
     /* Spine shadow removed */
 }
 
-/* Markdown Styling for Resume */
-.a4-vertical h1 {
-    font-size: 2.5rem;
-    border-bottom: 2px solid #000;
-    padding-bottom: 10px;
-    margin-bottom: 20px;
-}
 
-.a4-vertical h2 {
-    font-size: 1.5rem;
-    margin-top: 20px;
-    margin-bottom: 10px;
-    color: #333;
-}
-
-.a4-vertical h3 {
-    font-size: 1.2rem;
-    margin-top: 15px;
-    margin-bottom: 5px;
-    font-weight: 600;
-}
-
-.a4-vertical h4 {
-    font-size: 1rem;
-    font-weight: bold;
-    margin: 0;
-}
-
-.a4-vertical p {
-    margin-bottom: 10px;
-    line-height: 1.5;
-    color: #555;
-}
-
-.a4-vertical ul {
-    padding-left: 20px;
-    margin-bottom: 15px;
-}
-
-.a4-vertical li {
-    margin-bottom: 5px;
-}
-
-.a4-vertical strong {
-    color: #000;
-}
-
-.a4-vertical em {
-    color: #666;
-}
 
 /* Flipped State */
 .page.flipped {
@@ -455,5 +316,11 @@ ul {
 
     .instruction-hint {
         display: none !important;
+    }
+
+    .pdf-container {
+        height: calc(100vh - 60px);
+        margin: 0;
+        border-radius: 0;
     }
 }

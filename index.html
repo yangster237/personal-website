@@ -9,7 +9,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
 
 <body>
@@ -26,11 +25,13 @@
     <!-- Main Content Container -->
     <main class="content-container">
 
-        <!-- RESUME VIEW (Vertical A4) -->
+        <!-- RESUME VIEW (PDF Embed) -->
         <section id="resume-view" class="view active-view">
-            <div class="a4-vertical" id="resume-content">
-                <!-- Content will be loaded from resume.md -->
-                <div style="text-align: center; margin-top: 50%;">Loading Resume...</div>
+            <div class="pdf-container">
+                <object data="resume.pdf" type="application/pdf" width="100%" height="100%">
+                    <p>It appears your web browser doesn't support PDFs natively. <a href="resume.pdf">Download the
+                            resume</a> instead.</p>
+                </object>
             </div>
         </section>
 

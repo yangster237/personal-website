@@ -32,32 +32,7 @@ btnResume.addEventListener('click', () => switchView('resume'));
 btnPortfolio.addEventListener('click', () => switchView('portfolio'));
 
 
-// --- Dynamic Resume Loading ---
-async function loadResume() {
-    try {
-        const response = await fetch('resume.md');
-        if (!response.ok) throw new Error('Failed to load resume.md');
-        const markdown = await response.text();
-        // Convert Markdown to HTML using marked.js
-        const html = marked.parse(markdown);
-        document.getElementById('resume-content').innerHTML = html;
-    } catch (err) {
-        console.error(err);
-        const isFileProtocol = window.location.protocol === 'file:';
-        let msg = '<p style="color:red; text-align:center; padding-top: 50px;">Error loading resume.</p>';
 
-        if (isFileProtocol) {
-            msg += '<p style="text-align:center; color:#666;"><b>Note:</b> Browsers block loading files locally due to CORS security.</p>';
-            msg += '<p style="text-align:center; color:#666;">Please run a local server (e.g. <code>python -m http.server</code>) or upload to GitHub Pages.</p>';
-        }
-
-        document.getElementById('resume-content').innerHTML = msg;
-    }
-}
-loadResume();
-
-
-// --- Dynamic Portfolio Generation ---
 const flipbookContainer = document.getElementById('flipbook');
 let flipbookPages = []; // Will store page elements
 let currentPageIndex = 0;
