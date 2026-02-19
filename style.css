@@ -116,14 +116,60 @@ body {
 /* Responsive scaling for small screens */
 @media (max-width: 900px) {
     .a4-vertical {
+        --scale: calc(92vw / 793.7);
         width: 92vw;
-        min-height: calc(92vw * 297 / 210);
+        min-height: calc(1122.5px * var(--scale));
+        /* 297mm height prop */
         height: auto;
-        padding: 6vw;
+        padding: calc(40px * var(--scale));
         margin: 4vw auto;
         box-shadow: var(--shadow);
         border-radius: 4px;
         transform: none;
+    }
+
+    /* Dynamically shrink fonts and margins inside .a4-vertical exactly matching desktop A4 proportion */
+    .a4-vertical,
+    .a4-vertical p,
+    .a4-vertical strong,
+    .a4-vertical em {
+        font-size: calc(16px * var(--scale));
+    }
+
+    .a4-vertical p {
+        margin-bottom: calc(10px * var(--scale));
+    }
+
+    .a4-vertical h1 {
+        font-size: calc(40px * var(--scale));
+        border-bottom-width: calc(2px * var(--scale));
+        padding-bottom: calc(10px * var(--scale));
+        margin-bottom: calc(20px * var(--scale));
+    }
+
+    .a4-vertical h2 {
+        font-size: calc(24px * var(--scale));
+        margin-top: calc(20px * var(--scale));
+        margin-bottom: calc(10px * var(--scale));
+    }
+
+    .a4-vertical h3 {
+        font-size: calc(19.2px * var(--scale));
+        margin-top: calc(15px * var(--scale));
+        margin-bottom: calc(5px * var(--scale));
+    }
+
+    .a4-vertical h4 {
+        font-size: calc(16px * var(--scale));
+    }
+
+    .a4-vertical ul {
+        padding-left: calc(20px * var(--scale));
+        margin-bottom: calc(15px * var(--scale));
+    }
+
+    .a4-vertical li {
+        margin-bottom: calc(5px * var(--scale));
     }
 }
 
