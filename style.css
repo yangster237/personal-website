@@ -35,18 +35,13 @@ body {
 .top-bar {
     height: 60px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     padding: 0 40px;
-    background: white;
-    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);
     z-index: 100;
 }
 
-.logo {
-    font-weight: 700;
-    font-size: 1.2rem;
-}
+
 
 .nav-links button {
     background: none;
@@ -54,7 +49,7 @@ body {
     font-family: inherit;
     font-size: 1rem;
     font-weight: 500;
-    margin-left: 20px;
+    margin: 0 10px;
     cursor: pointer;
     color: #888;
     transition: color 0.2s;
@@ -250,7 +245,7 @@ body {
     }
 
     .nav-links button {
-        margin-left: 10px;
+        margin: 0 5px;
         font-size: 0.9rem;
     }
 
