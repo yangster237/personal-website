@@ -241,7 +241,23 @@ body {
 /* Mobile Devices */
 @media (max-width: 768px) {
     .top-bar {
-        padding: 0 15px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: auto;
+        padding: 15px;
+        background: transparent;
+        pointer-events: none;
+        /* Let clicks pass through empty space */
+    }
+
+    .nav-links {
+        pointer-events: auto;
+        /* Re-enable clicks on the buttons */
+        display: flex;
+        justify-content: center;
+        width: 100%;
     }
 
     .nav-links button {
@@ -313,7 +329,8 @@ body {
     .pdf-container {
         max-width: 92vw;
         height: auto;
-        margin: 20px auto;
+        margin: 50px auto 20px auto;
+        /* Leave room for the floating top buttons */
         border-radius: 4px;
     }
 }
