@@ -104,22 +104,19 @@ body {
 /* --- Resume View (PDF) --- */
 .pdf-container {
     width: 100%;
-    max-width: 1000px;
-    /* Limit ultra-wide stretch */
-    height: calc(100vh - 80px);
-    /* Leave room for header margin */
-    margin: 20px auto;
+    max-width: var(--a4-w);
+    height: auto;
+    margin: 40px auto;
     box-shadow: var(--shadow);
-    border-radius: 8px;
-    overflow: hidden;
+    border-radius: 4px;
     background: var(--paper-color);
 }
 
-.pdf-container object {
+.pdf-container canvas {
     display: block;
     width: 100%;
-    height: 100%;
-    border: none;
+    height: auto;
+    border-radius: 4px;
 }
 
 
@@ -319,8 +316,9 @@ body {
     }
 
     .pdf-container {
-        height: calc(100vh - 60px);
-        margin: 0;
-        border-radius: 0;
+        max-width: 92vw;
+        height: auto;
+        margin: 20px auto;
+        border-radius: 4px;
     }
 }

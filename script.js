@@ -31,6 +31,42 @@ function switchView(viewName) {
 btnResume.addEventListener('click', () => switchView('resume'));
 btnPortfolio.addEventListener('click', () => switchView('portfolio'));
 
+// --- PDF Resume Rendering ---
+const pdfUrl = 'resume.pdf';
+
+// The workerSrc property shall be specified.
+pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+const canvas = document.getElementById('pdf-render');
+
+async function renderPDF() {
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    try {
+        const loadingTask = pdfjsLib.getDocument(pdfUrl);
+        const pdf = await loadingTask.promise;
+        const page = await pdf.getPage(1); // Fetch first page
+
+        // Render at a higher scale for better resolution on high-DPI screens
+        const scale = window.devicePixelRatio > 1 ? window.devicePixelRatio * 1.5 : 2;
+        const viewport = page.getViewport({ scale: scale });
+
+        // Set dimensions to match page
+        canvas.height = viewport.height;
+        canvas.width = viewport.width;
+
+        // Render PDF page into canvas context
+        const renderContext = {
+            canvasContext: ctx,
+            viewport: viewport
+        };
+        await page.render(renderContext).promise;
+    } catch (err) {
+        console.error('Error rendering PDF:', err);
+    }
+}
+
+renderPDF();
 
 
 const flipbookContainer = document.getElementById('flipbook');
