@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>John Lee — Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+
+<body>
+
+    <!-- Top Navigation Bar -->
+    <nav class="top-bar">
+        <div class="logo">John Lee</div>
+        <div class="nav-links">
+            <button id="btn-resume" class="active">Resume</button>
+            <button id="btn-portfolio">Portfolio</button>
+        </div>
+    </nav>
+
+    <!-- Main Content Container -->
+    <main class="content-container">
+
+        <!-- RESUME VIEW (Vertical A4) -->
+        <section id="resume-view" class="view active-view">
+            <div class="a4-vertical" id="resume-content">
+                <!-- Content will be loaded from resume.md -->
+                <div style="text-align: center; margin-top: 50%;">Loading Resume...</div>
+            </div>
+        </section>
+
+        <!-- PORTFOLIO VIEW (Horizontal A4 Flipbook) -->
+        <section id="portfolio-view" class="view">
+            <div class="flipbook-scene">
+                <div class="flipbook" id="flipbook">
+                    <!-- Dynamic pages will be injected here -->
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
