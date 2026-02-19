@@ -116,13 +116,14 @@ body {
 /* Responsive scaling for small screens */
 @media (max-width: 900px) {
     .a4-vertical {
-        width: 100%;
-        max-width: 100vw;
-        min-height: 100vh;
+        width: 92%;
+        max-width: 92vw;
+        min-height: 95vh;
         height: auto;
         padding: 20px;
-        margin: 0 auto;
-        box-shadow: none;
+        margin: 15px auto;
+        box-shadow: var(--shadow);
+        border-radius: 4px;
     }
 }
 
