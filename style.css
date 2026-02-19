@@ -116,14 +116,11 @@ body {
 /* Responsive scaling for small screens */
 @media (max-width: 900px) {
     .a4-vertical {
-        width: 92%;
-        max-width: 92vw;
-        min-height: 95vh;
-        height: auto;
-        padding: 20px;
+        transform: scale(calc(92vw / 793.7));
+        /* 793.7px is approx 210mm */
+        transform-origin: top center;
         margin: 15px auto;
-        box-shadow: var(--shadow);
-        border-radius: 4px;
+        margin-bottom: calc(var(--a4-h) * (92vw / 793.7) - var(--a4-h) + 30px);
     }
 }
 
