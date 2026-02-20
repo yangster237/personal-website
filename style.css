@@ -93,6 +93,7 @@ body {
     transform: translateY(20px);
     overflow-y: auto;
     overflow-x: hidden;
+    padding-bottom: env(safe-area-inset-bottom, 20px);
 }
 
 .view.active-view {
