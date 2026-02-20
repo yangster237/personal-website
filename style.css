@@ -294,7 +294,8 @@ body {
         transform-style: flat;
         display: flex;
         flex-direction: column;
-        gap: 30px;
+        gap: 15px;
+        /* Decreased image spacing */
         height: auto;
     }
 
@@ -307,6 +308,7 @@ body {
         width: 100%;
         height: auto;
         aspect-ratio: 297/210;
+        /* Lock to Landscape A4 proportion */
         transform: none !important;
         transition: none;
         top: auto;
