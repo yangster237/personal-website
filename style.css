@@ -169,6 +169,7 @@ body {
     flex-direction: column;
     justify-content: center;
     border-radius: 2px;
+    box-shadow: var(--shadow);
 }
 
 .page-back {
