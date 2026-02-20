@@ -76,55 +76,62 @@ let currentPageIndex = 0;
 function createPortfolio() {
     flipbookContainer.innerHTML = ''; // Clear existing
 
-    // Create Cover Page (Static or dynamic?)
-    // Let's make the FIRST image the cover, or add a title page?
-    // User asked "portfolio changes dynamically based on the image file".
-    // Let's treat each image as a page.
+    const numPages = Math.ceil(portfolioImages.length / 2);
 
-    portfolioImages.forEach((imageSrc, index) => {
+    for (let i = 0; i < numPages; i++) {
         const page = document.createElement('div');
         page.className = 'page';
-        page.dataset.page = index + 1;
-
+        page.dataset.page = i + 1;
         // Z-Index: stack from top to bottom
-        page.style.zIndex = portfolioImages.length - index;
+        page.style.zIndex = numPages - i;
 
         // Front Content
         const front = document.createElement('div');
         front.className = 'page-front';
 
-        // Image element
-        const img = document.createElement('img');
-        img.src = `portfolio/${imageSrc}`;
-        img.style.width = '100%';
-        img.style.height = '100%';
-        img.style.objectFit = 'cover'; // Ensure it covers the page
-        img.style.borderRadius = '2px';
+        const frontIndex = i * 2;
+        if (frontIndex < portfolioImages.length) {
+            const imgFront = document.createElement('img');
+            imgFront.src = `portfolio/${portfolioImages[frontIndex]}`;
+            imgFront.style.width = '100%';
+            imgFront.style.height = '100%';
+            imgFront.style.objectFit = 'cover';
+            imgFront.style.borderRadius = '2px';
+            front.appendChild(imgFront);
 
-        // Hint on first page
-        if (index === 0) {
-            const hint = document.createElement('div');
-            hint.className = 'instruction-hint';
-            hint.innerText = 'Click edge to flip →';
-            hint.style.position = 'absolute';
-            hint.style.bottom = '20px';
-            hint.style.right = '20px';
-            hint.style.background = 'rgba(255,255,255,0.8)';
-            hint.style.zIndex = '10';
-            front.appendChild(hint);
+            // Hint on first page
+            if (frontIndex === 0) {
+                const hint = document.createElement('div');
+                hint.className = 'instruction-hint';
+                hint.innerText = 'Click edge to flip →';
+                hint.style.position = 'absolute';
+                hint.style.bottom = '20px';
+                hint.style.right = '20px';
+                hint.style.background = 'rgba(255,255,255,0.8)';
+                hint.style.zIndex = '10';
+                front.appendChild(hint);
+            }
         }
 
-        front.appendChild(img);
-
-        // Back Content (Empty for now, acts as spine/back of paper)
+        // Back Content
         const back = document.createElement('div');
         back.className = 'page-back';
 
+        const backIndex = i * 2 + 1;
+        if (backIndex < portfolioImages.length) {
+            const imgBack = document.createElement('img');
+            imgBack.src = `portfolio/${portfolioImages[backIndex]}`;
+            imgBack.style.width = '100%';
+            imgBack.style.height = '100%';
+            imgBack.style.objectFit = 'cover';
+            imgBack.style.borderRadius = '2px';
+            back.appendChild(imgBack);
+        }
+
         page.appendChild(front);
         page.appendChild(back);
-
         flipbookContainer.appendChild(page);
-    });
+    }
 
     // Update pages NodeList
     flipbookPages = document.querySelectorAll('.page');

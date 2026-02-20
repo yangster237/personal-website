@@ -300,28 +300,39 @@ body {
         position: relative !important;
         width: 100%;
         height: auto;
-        aspect-ratio: 297/210;
-        /* Lock to Landscape A4 proportion */
         transform: none !important;
         transition: none;
         top: auto;
         left: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        /* Decreased image spacing between front and back */
     }
 
     .page.flipped {
         transform: none !important;
     }
 
+    .page-front,
     .page-back {
-        display: none !important;
-    }
-
-    .page-front {
-        position: relative;
+        display: block !important;
+        position: relative !important;
+        width: 100%;
+        aspect-ratio: 297/210;
+        /* Lock to Landscape A4 proportion */
         padding: 0;
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         border-radius: 8px;
         overflow: hidden;
+        transform: none !important;
+        /* Cancel CSS 3D back-rotation on phones */
+    }
+
+    .page-front:empty,
+    .page-back:empty {
+        display: none !important;
+        /* Delete the gap space if no image was provided for the page */
     }
 
     .instruction-hint {
