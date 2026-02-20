@@ -20,11 +20,16 @@
     padding: 0;
 }
 
+html {
+    background-color: var(--bg-color);
+}
+
 body {
     font-family: 'Inter', sans-serif;
     background-color: var(--bg-color);
     color: var(--text-color);
-    height: 100vh;
+    min-height: 100vh;
+    height: 100dvh;
     overflow: hidden;
     /* No scrolling */
     display: flex;
@@ -242,7 +247,7 @@ body {
 @media (max-width: 768px) {
     .top-bar {
         position: absolute;
-        top: 0;
+        top: env(safe-area-inset-top, 0);
         left: 0;
         width: 100%;
         height: auto;
