@@ -284,7 +284,8 @@ body {
         height: auto;
         aspect-ratio: auto;
         padding: 20px;
-        margin: 0;
+        margin: 60px 0 0 0;
+        /* Clear the floating top bar */
     }
 
     .flipbook {
